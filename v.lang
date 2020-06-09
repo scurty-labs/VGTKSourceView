@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ This file was written for GtkSourceView
+ Author: Scott Rhine <scurrttie@gmail.com>
+ Copyright (C) 2019 Scott Rhine <scurrttie@gmail.com>
+ GtkSourceView and/or this file is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ GtkSourceView and/or this file is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ You should have received a copy of the GNU Lesser General Public License
+ along with this library; if not, see <http://www.gnu.org/licenses/>.
+-->
+
+<language id="vlang" name="V" version="2.0" _section="Source">
+<metadata>
+    <property name="mimetypes">text/x-vlang</property>
+    <property name="globs">*.v</property>
+    <property name="line-comment-start">//</property>
+    <property name="block-comment-start">/*</property>
+    <property name="block-comment-end">*/</property>
+</metadata>
+<styles>
+    <style id="comment" name="Comment" map-to="def:comment"/>
+    <style id="string" name="String" map-to="def:string"/>
+    <style id="char" name="String" map-to="def:char"/>
+    <style id="boolean" name="Boolean Value" map-to="def:boolean"/>
+    <style id="decimal" name="Decimals" map-to="def:decimal"/>
+    <style id="floating-point" name="Floating point number" map-to="def:floating-point"/>
+
+    <style id="operator" name="Operator" map-to="def:operator"/>
+    <style id="keyword" name="Keyword" map-to="def:keyword"/>
+    <style id="type" name="Basic Types" map-to="def:type"/>
+</styles>
+
+<definitions>
+    <context id="vlang">
+        <include>
+
+            <context id="comment" style-ref="comment" end-at-line-end="true" class-disabled="no-spell-check">
+                <start>//</start>
+                <include>
+                    <context ref="def:in-line-comment"/>
+                </include>
+            </context>
+
+            <context id="comment-multiline" style-ref="comment" class-disabled="no-spell-check">
+                <start>/\*</start>
+                <end>\*/</end>
+                <include>
+                    <context ref="def:in-comment"/>
+                </include>
+            </context>
+
+            <context id="string" end-at-line-end="true" style-ref="string">
+                <start>"</start>
+                <end>"</end>
+            </context>
+
+            <context id="char" end-at-line-end="true" style-ref="char">
+                <start>'</start>
+                <end>'</end>
+            </context>
+
+            <context id="boolean" style-ref="boolean">
+                <match>(true|false)</match>
+            </context>
+
+            <context id="decimal" style-ref="decimal">
+            <match extended="true">
+            (?&lt;![\w\.])
+            (0|[1-9][0-9]*)
+            (?![\w\.])
+            </match>
+            </context>
+
+            <define-regex id="float" extended="true">
+              ((\.[0-9]+ | [0-9]+\.[0-9]*) ([Ee][+-]?[0-9]+)? |
+              ([0-9]+[Ee][+-]?[0-9]+))
+            </define-regex>
+
+            <context id="float" style-ref="floating-point">
+            <match>(?&lt;![\w\.])\%{float}(?![\w\.])</match>
+            </context>
+
+            <context id="operator" style-ref="operator">
+                <match>[-^:\(\)\|\!\=\+\*&amp;&lt;&gt;\?]</match>
+            </context>
+
+            <context id="keywords" style-ref="keyword" class-disabled="no-spell-check">
+                <keyword>break</keyword>
+                <keyword>continue</keyword>
+                <keyword>defer</keyword>
+                <keyword>else</keyword>
+                <keyword>enum</keyword>
+                <keyword>fn</keyword>
+                <keyword>for</keyword>
+                <keyword>go</keyword>
+                <keyword>goto</keyword>
+                <keyword>if</keyword>
+                <keyword>import</keyword>
+                <keyword>in</keyword>
+                <keyword>interface</keyword>
+                <keyword>match</keyword>
+                <keyword>module</keyword>
+                <keyword>none</keyword>
+                <keyword>or</keyword>
+                <keyword>pub</keyword>
+                <keyword>return</keyword>
+
+                <keyword>inline</keyword>
+                <keyword>live</keyword>
+                <keyword>typedef</keyword>
+                <keyword>ref_only</keyword>
+                <keyword>unsafe_fn</keyword>
+                <keyword>deprecated</keyword>
+                <keyword>windows_stdcall</keyword>
+                <keyword>no_inline</keyword>
+                <keyword>irq_handler</keyword>
+                <keyword>_cold</keyword>
+                <keyword>_constructor</keyword>
+                <keyword>_destructor</keyword>
+                <keyword>_flatten</keyword>
+                <keyword>_hot</keyword>
+                <keyword>_malloc</keyword>
+                <keyword>_pure</keyword>
+            </context>
+            
+
+            <context id="types" style-ref="type" class-disabled="no-spell-check">
+                <keyword>struct</keyword>
+                <keyword>type</keyword>
+                <keyword>var</keyword>
+                <keyword>mut</keyword>
+                <keyword>const</keyword>
+               
+                <keyword>bool</keyword>
+                <keyword>string</keyword>
+                <keyword>i8</keyword>
+                <keyword>int</keyword>
+                <keyword>i64</keyword>
+                <keyword>i128</keyword>
+                <keyword>byte</keyword>
+                <keyword>u16</keyword>
+                <keyword>u32</keyword>
+                <keyword>u64</keyword>
+                <keyword>u128</keyword>
+                <keyword>rune</keyword>
+                <keyword>f32</keyword>
+                <keyword>f64</keyword>
+                <keyword>any_int</keyword>
+                <keyword>any_float</keyword>
+                <keyword>byteptr</keyword>
+                <keyword>voidptr</keyword>
+                <keyword>any</keyword>
+
+                <keyword>array</keyword>
+                <keyword>map</keyword>
+            </context>
+
+        </include>
+    </context>
+</definitions>
+</language>

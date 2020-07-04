@@ -103,6 +103,7 @@
                 <keyword>if</keyword>
                 <keyword>import</keyword>
                 <keyword>in</keyword>
+                <keyword>as</keyword>
                 <keyword>interface</keyword>
                 <keyword>match</keyword>
                 <keyword>module</keyword>
@@ -159,6 +160,7 @@
 
                 <keyword>array</keyword>
                 <keyword>map</keyword>
+                <!-- <keyword>lock</keyword> -->
             </context>
 
         </include>

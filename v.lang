@@ -30,7 +30,7 @@
     <style id="boolean" name="Boolean Value" map-to="def:boolean"/>
     <style id="decimal" name="Decimals" map-to="def:decimal"/>
     <style id="floating-point" name="Floating point number" map-to="def:floating-point"/>
-
+    <style id="builtin-function"  name="Builtin Function"    map-to="def:builtin"/>
     <style id="operator" name="Operator" map-to="def:operator"/>
     <style id="keyword" name="Keyword" map-to="def:keyword"/>
     <style id="type" name="Basic Types" map-to="def:type"/>
@@ -86,6 +86,10 @@
             <match>(?&lt;![\w\.])\%{float}(?![\w\.])</match>
             </context>
 
+            <context id="builtin-function" style-ref="builtin-function">
+                <keyword>println</keyword>
+            </context>
+
             <context id="operator" style-ref="operator">
                 <match>[-^:\(\)\|\!\=\+\*&amp;&lt;&gt;\?]</match>
             </context>
@@ -111,6 +115,7 @@
                 <keyword>or</keyword>
                 <keyword>pub</keyword>
                 <keyword>return</keyword>
+                <keyword>__global</keyword>
 
                 <keyword>inline</keyword>
                 <keyword>live</keyword>
@@ -128,6 +133,8 @@
                 <keyword>_hot</keyword>
                 <keyword>_malloc</keyword>
                 <keyword>_pure</keyword>
+
+                <keyword>sql</keyword>
             </context>
             
 

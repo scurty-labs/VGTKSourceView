@@ -88,6 +88,20 @@
 
             <context id="builtin-function" style-ref="builtin-function">
                 <keyword>println</keyword>
+                <keyword>eprintln</keyword>
+                <keyword>exit</keyword>
+                <keyword>isnil</keyword>
+                <keyword>panic</keyword>
+                <keyword>eprint</keyword>
+                <keyword>print</keyword>
+                <keyword>malloc</keyword>
+                <keyword>v_realloc</keyword>
+                <keyword>v_calloc</keyword>
+                <keyword>is_atty</keyword>
+                <keyword>error</keyword>
+                <keyword>error_with_code</keyword>
+                <keyword>free</keyword>
+                <keyword>copy</keyword>
             </context>
 
             <context id="operator" style-ref="operator">
@@ -163,11 +177,12 @@
                 <keyword>any_float</keyword>
                 <keyword>byteptr</keyword>
                 <keyword>voidptr</keyword>
+                <keyword>charptr</keyword>
                 <keyword>any</keyword>
 
                 <keyword>array</keyword>
                 <keyword>map</keyword>
-                <!-- <keyword>lock</keyword> -->
+                <keyword>lock</keyword>
             </context>
 
         </include>

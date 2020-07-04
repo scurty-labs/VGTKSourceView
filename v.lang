@@ -26,7 +26,7 @@
 <styles>
     <style id="comment" name="Comment" map-to="def:comment"/>
     <style id="string" name="String" map-to="def:string"/>
-    <style id="char" name="String" map-to="def:char"/>
+    <style id="char" name="String" map-to="def:string"/>
     <style id="boolean" name="Boolean Value" map-to="def:boolean"/>
     <style id="decimal" name="Decimals" map-to="def:decimal"/>
     <style id="floating-point" name="Floating point number" map-to="def:floating-point"/>
@@ -60,7 +60,7 @@
                 <end>"</end>
             </context>
 
-            <context id="char" end-at-line-end="true" style-ref="char">
+            <context id="char" end-at-line-end="true" style-ref="string">
                 <start>'</start>
                 <end>'</end>
             </context>

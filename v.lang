@@ -27,6 +27,7 @@
     <style id="comment" name="Comment" map-to="def:comment"/>
     <style id="string" name="String" map-to="def:string"/>
     <style id="char" name="String" map-to="def:string"/>
+    <style id="byte" name="Decimals" map-to="def:decimal"/>
     <style id="boolean" name="Boolean Value" map-to="def:boolean"/>
     <style id="decimal" name="Decimals" map-to="def:decimal"/>
     <style id="floating-point" name="Floating point number" map-to="def:floating-point"/>
@@ -64,18 +65,23 @@
                 <start>'</start>
                 <end>'</end>
             </context>
+            
+            <context id="byte" end-at-line-end="true" style-ref="byte">
+                <start>`</start>
+                <end>`</end>
+            </context>
 
             <context id="boolean" style-ref="boolean">
                 <match>(true|false)</match>
             </context>
 
             <context id="decimal" style-ref="decimal">
-            <match extended="true">
-            (?&lt;![\w\.])
-            (0|[1-9][0-9]*)
-            (?![\w\.])
-            </match>
-            </context>
+      			<match extended="true">
+		        (?&lt;![\w\.])
+		        (0|[1-9][0-9]*)
+		        (?![\w\.])
+		        </match>
+   			</context>
 
             <define-regex id="float" extended="true">
               ((\.[0-9]+ | [0-9]+\.[0-9]*) ([Ee][+-]?[0-9]+)? |
@@ -105,7 +111,7 @@
             </context>
 
             <context id="operator" style-ref="operator">
-                <match>[-^:\(\)\|\!\=\+\*&amp;&lt;&gt;\?\[\]]</match>
+                <match>[-^:\(\)\|\!\=\+\*&amp;&lt;&gt;\?\[\]\..\{\}\%\/]</match>
             </context>
 
             <context id="keywords" style-ref="keyword" class-disabled="no-spell-check">
@@ -132,6 +138,7 @@
                 <keyword>__global</keyword>
 
                 <keyword>inline</keyword>
+                <keyword>post</keyword>
                 <keyword>live</keyword>
                 <keyword>typedef</keyword>
                 <keyword>ref_only</keyword>
@@ -182,7 +189,7 @@
 
                 <keyword>array</keyword>
                 <keyword>map</keyword>
-                <keyword>lock</keyword>
+                
             </context>
 
         </include>

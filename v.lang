@@ -2,7 +2,6 @@
 <!--
  This file was written for GtkSourceView
  Author: Scott Rhine <scurrttie@gmail.com>
- Copyright (C) 2019 Scott Rhine <scurrttie@gmail.com>
  GtkSourceView and/or this file is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
  License as published by the Free Software Foundation; either
@@ -34,6 +33,7 @@
     <style id="builtin-function" name="Builtin Function" map-to="def:builtin"/>
     <style id="operator" name="Operator" map-to="def:operator"/>
     <style id="keyword" name="Keyword" map-to="def:keyword"/>
+    <style id="statement" name="Statement" map-to="def:statement"/>
     <style id="type" name="Basic Types" map-to="def:type"/>
 </styles>
 
@@ -101,49 +101,82 @@
                 <keyword>eprint</keyword>
                 <keyword>print</keyword>
                 <keyword>malloc</keyword>
+                <keyword>sizeof</keyword>
                 <keyword>v_realloc</keyword>
                 <keyword>v_calloc</keyword>
+                <keyword>vcalloc</keyword>
                 <keyword>is_atty</keyword>
                 <keyword>error</keyword>
                 <keyword>error_with_code</keyword>
                 <keyword>free</keyword>
                 <keyword>copy</keyword>
+                <keyword>wait</keyword>
+                <keyword>dump</keyword>
+                <keyword>embed_file</keyword>
+                <keyword>env</keyword>
+                <keyword>tmpl</keyword>
+                <keyword>__offsetof</keyword>
+                <keyword>compare_strings</keyword>
+                <keyword>cstring_to_vstring</keyword>
+                <keyword>memdup</keyword>
+                <keyword>string_from_wide</keyword>
+                <keyword>string_from_wide2</keyword>
+                <keyword>tos</keyword>
+                <keyword>utf32_to_str</keyword>
             </context>
 
             <context id="operator" style-ref="operator">
                 <match>[-^:\(\)\|\!\=\+\*&amp;&lt;&gt;\?\[\]\..\{\}\%\/]</match>
             </context>
-
-            <context id="keywords" style-ref="keyword" class-disabled="no-spell-check">
-                <keyword>break</keyword>
+            
+            <context id="statement" style-ref="statement" class-disabled="no-spell-check">
+            	<keyword>break</keyword>
                 <keyword>continue</keyword>
                 <keyword>defer</keyword>
                 <keyword>else</keyword>
-                <keyword>enum</keyword>
                 <keyword>fn</keyword>
                 <keyword>for</keyword>
                 <keyword>go</keyword>
                 <keyword>goto</keyword>
                 <keyword>if</keyword>
+                <keyword>end</keyword>
                 <keyword>import</keyword>
                 <keyword>in</keyword>
                 <keyword>as</keyword>
-                <keyword>interface</keyword>
+                <keyword>is</keyword>
+                <keyword>assert</keyword>
+                <keyword>it</keyword>
                 <keyword>match</keyword>
+                <keyword>select</keyword>
                 <keyword>module</keyword>
-                <keyword>none</keyword>
                 <keyword>or</keyword>
                 <keyword>pub</keyword>
                 <keyword>return</keyword>
-                <keyword>__global</keyword>
+                <keyword>rlock</keyword>
+                <keyword>lock</keyword>
+                <keyword>union</keyword>
+                <keyword>sql</keyword>
+                <keyword>asm</keyword>
+            </context>
 
+            <context id="keywords" style-ref="keyword" class-disabled="no-spell-check">
+            
+           		<keyword>__global</keyword>
                 <keyword>inline</keyword>
+                <keyword>direct_array_access</keyword>
+                <keyword>_likely_</keyword>
+                <keyword>_unlikely_</keyword>
                 <keyword>post</keyword>
                 <keyword>live</keyword>
                 <keyword>typedef</keyword>
                 <keyword>ref_only</keyword>
+                <keyword>unsafe</keyword>
+                <keyword>manualfree</keyword>
                 <keyword>unsafe_fn</keyword>
                 <keyword>deprecated</keyword>
+                <keyword>heap</keyword>
+                <keyword>keep_args_alive</keyword>
+                <keyword>console</keyword>
                 <keyword>windows_stdcall</keyword>
                 <keyword>no_inline</keyword>
                 <keyword>irq_handler</keyword>
@@ -154,25 +187,24 @@
                 <keyword>_hot</keyword>
                 <keyword>_malloc</keyword>
                 <keyword>_pure</keyword>
-
-                <keyword>sql</keyword>
+				<keyword>flag</keyword>
+                <keyword>include</keyword>
+                
             </context>
-            
 
             <context id="types" style-ref="type" class-disabled="no-spell-check">
-                <keyword>struct</keyword>
-                <keyword>type</keyword>
                 <keyword>var</keyword>
                 <keyword>mut</keyword>
-                <keyword>const</keyword>
-               
+                <keyword>shared</keyword>
                 <keyword>bool</keyword>
                 <keyword>string</keyword>
+                <keyword>ustring</keyword>
                 <keyword>i8</keyword>
                 <keyword>int</keyword>
                 <keyword>i64</keyword>
                 <keyword>i128</keyword>
                 <keyword>byte</keyword>
+                <keyword>u8</keyword>
                 <keyword>u16</keyword>
                 <keyword>u32</keyword>
                 <keyword>u64</keyword>
@@ -186,10 +218,19 @@
                 <keyword>voidptr</keyword>
                 <keyword>charptr</keyword>
                 <keyword>any</keyword>
+                <keyword>none</keyword>
+                <keyword>chan</keyword>
+                <keyword>atomic</keyword>
+                <keyword>static</keyword>
 
                 <keyword>array</keyword>
                 <keyword>map</keyword>
+                <keyword>size_t</keyword>
                 
+                <keyword>interface</keyword>
+                <keyword>struct</keyword>
+                <keyword>enum</keyword>
+                <keyword>type</keyword>
             </context>
 
         </include>

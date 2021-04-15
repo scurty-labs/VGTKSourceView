@@ -195,6 +195,7 @@
             <context id="types" style-ref="type" class-disabled="no-spell-check">
                 <keyword>var</keyword>
                 <keyword>mut</keyword>
+                <keyword>const</keyword>
                 <keyword>shared</keyword>
                 <keyword>bool</keyword>
                 <keyword>string</keyword>
